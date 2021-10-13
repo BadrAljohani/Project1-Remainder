@@ -12,7 +12,7 @@ struct Task {
     var comment : String
     var operation : Operation
     
-    mutating func editTask (  newTitel: String ,newtime: Int , newcomment : String , newOperation : Operation ){
+    mutating func editTask ( newTitel: String ,newtime: Int , newcomment : String , newOperation : Operation ){
         self.titel = newTitel
         self.time = newtime
         self.comment = newcomment
@@ -24,7 +24,7 @@ struct List {
     var items: [Task] = []
     mutating func addItem (newItem : Task) {
         self.items.append(newItem)
-        print("added Done")
+//        print("You Add a new List ")
     }
 }
 class Remainder {
@@ -33,22 +33,36 @@ class Remainder {
     func filterList(list: List){
         list.items.filter({ return $0.operation == .completed})
     }
+    func deletItem (index : Int){
+        lists.remove(at: 0)
+        print("Delet Don")
+    }
+    func Show (){
+        for showLists in lists  {
+            print(showLists.title, "The Number of Mection :\(showLists.items.count)")
 
-//    func deletItem (index : Int ){
-//        lists[Task].remove(at: 0)
-//        print("removed Done",lists.count)
-//   }
-//    func getTask(byId: Int) ->Task? {
-//        let task = theList.first { $0.time == byId }
-//            return (task)
-//    }
-//    func readItme() {
-//        print ("INformation List : \(theList)")
-//    }
-//}
+            for item in showLists.items {
+                print (item.titel, item.time , item.comment , item.operation)
+            }
+        }
+    }
+    
+    func ShowByTitle (){
+        
+    }
 }
+//        print("List Title: \([i].title) (\([i].items.count))")
+    
+    
 
-var T1 = Task( titel: "Go To Work",time: 8, comment: "print The New Document With You",  operation: .completed)
+//        func deletItem (index : Int ){
+//            lists[List].remove(at: 0)
+//            print("removed Done",lists.count)
+//       }
+
+//var T1 = Task( titel: "Go To Work",time: 8, comment: "print The New Document With You",  operation: .completed);
+//var T2 = Task( titel: "Break Lunch",time: 12, comment: "call your frind Ahmed", operation: .pending)
+var T1 = Task( titel: "Go To Work",time: 8, comment: "print The New Document With You",  operation: .completed);
 var T2 = Task( titel: "Break Lunch",time: 12, comment: "call your frind Ahmed", operation: .pending)
 var T3 = Task( titel: "GYM",time: 20, comment: "Take Your Supplements",  operation: .completed)
 
@@ -60,22 +74,35 @@ var T7 = Task( titel: "Fligh",time: 6, comment: "trip to italy",  operation: .co
 var T8 = Task( titel: "driver",time: 12, comment: "0545455 his phonenumber", operation: .completed)
 var T9 = Task( titel: "restaurant reservation",time: 20, comment: "Don't forget to order a margarita",  operation: .completed)
 
+var List1 = List(title: "Work")
+List1.addItem(newItem: T1)
+List1.addItem(newItem: T2)
+List1.addItem(newItem: T7)
+
+//print(List1.title, List1.items.count)
+
+var List2 = List(title: "GYM")
+List2.addItem(newItem: T3)
+List2.addItem(newItem: T6)
+List2.addItem(newItem: T9)
+
+//print(List2)
+
 var myLists = Remainder()
 
 myLists.lists.append(List(title: "Day1", items: [ T1,T2,T3]))
 myLists.lists.append(List(title: "Day2", items: [ T4,T5,T6]))
 myLists.lists.append(List(title: "Day3", items: [ T7,T8,T9]))
-print(myLists.lists[0])
+//print(myLists.lists[0])
 
-myLists.lists[0].items.remove(at: 0)
+//myLists.lists[0].items.remove(at: 0)
 //myLists.deletItem(index: 0)
 
-for list in myLists.lists {
-    print("List Title: \(list.title) (\(list.items.count))")
-}
+//for i in myLists.lists {
+//    print("List Title: \(i.title) (\(i.items.count))")
+//}
 
-
-
+myLists.Show()
 
 
 //mylist.readItme()
@@ -95,3 +122,17 @@ for list in myLists.lists {
 //}
 
 
+
+
+//    func deletItem (index : Int ){
+//        lists[Task].remove(at: 0)
+//        print("removed Done",lists.count)
+//   }
+//    func getTask(byId: Int) ->Task? {
+//        let task = theList.first { $0.time == byId }
+//            return (task)
+//    }
+//    func readItme() {
+//        print ("INformation List : \(theList)")
+//    }
+//}
