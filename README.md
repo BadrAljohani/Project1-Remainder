@@ -11,3 +11,14 @@ The issues are:
 The features are:
 build a stract and tasks and give it value 
 building functions for add , delete , update and filter
+
+Project completed
+All that is done is :
+
+add Item
+create NewList
+delete Item
+update Item
+delete List
+show All
+sort
